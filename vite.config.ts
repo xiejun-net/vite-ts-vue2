@@ -7,11 +7,20 @@ import vue2Jsx from '@vitejs/plugin-vue2-jsx';
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  build: {
+    outDir: 'h5_001',
+    rollupOptions: {
+      input: {
+        index: 'index.html',
+        setting: 'static/setting.html'
+      },
+    },
+  },
   plugins: [
     vue2(),
     vue2Jsx(),
     legacy({
-      targets: ['ie >= 11'],
+      targets: ['ie >= 8'],
       additionalLegacyPolyfills: ['regenerator-runtime/runtime']
     })
   ],
